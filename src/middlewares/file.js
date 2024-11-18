@@ -4,9 +4,12 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary')
 
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
-  params: {
-    folder: 'products',
-    allowedFormats: ['jpg', 'png', 'jpeg', 'gif', 'webp']
+  params: async (req, file) => {
+    const folderName = req.body.folder || 'default-folder'
+    return {
+      folder: 'products',
+      allowedFormats: ['jpg', 'png', 'jpeg', 'gif', 'webp']
+    }
   }
 })
 
