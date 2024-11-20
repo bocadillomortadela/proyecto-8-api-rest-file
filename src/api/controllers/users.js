@@ -59,9 +59,9 @@ const login = async (req, res, next) => {
 const updateUserRole = async (req, res, next) => {
   try {
     const adminUser = await User.findById(req.user._id)
-    if (adminUser.rol !== 'admin') {
-      return res.status(400).json('aceess denied')
-    }
+    // if (adminUser.rol !== 'admin') {
+    //   return res.status(400).json('aceess denied')
+    // }
 
     const userId = req.params.userId
     const { rol } = req.body

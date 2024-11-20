@@ -7,7 +7,7 @@ const storage = new CloudinaryStorage({
   params: async (req, file) => {
     const folderName = req.body.folder || 'default-folder'
     return {
-      folder: 'products',
+      folder: folderName,
       allowedFormats: ['jpg', 'png', 'jpeg', 'gif', 'webp']
     }
   }
